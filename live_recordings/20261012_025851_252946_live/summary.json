@@ -1,0 +1,8 @@
+{
+  "reason": "user_stopped",
+  "valid": 2986,
+  "invalid": 0,
+  "foreign_sender": 0,
+  "ack_failures": 0,
+  "timeouts": 0
+}

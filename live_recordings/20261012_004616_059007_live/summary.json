@@ -1,0 +1,8 @@
+{
+  "reason": "duration_complete",
+  "valid": 3002,
+  "invalid": 0,
+  "foreign_sender": 0,
+  "ack_failures": 0,
+  "timeouts": 0
+}

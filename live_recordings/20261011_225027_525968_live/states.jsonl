@@ -1,0 +1,1 @@
+{"event": "receiver_stopped", "arrival_monotonic_ns": 684693075088800, "elapsed_s": null, "stop_reason": "user_stopped", "state": "unknown", "zupt_allowed": false, "reason": "no_fresh_data", "features": null}

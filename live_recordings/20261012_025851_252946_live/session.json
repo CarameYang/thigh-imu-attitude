@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-12T02:58:51.252946+08:00",
+  "mounting": "thigh",
+  "notes": "Seated thigh swing: horizontal then down to near vertical, x2; face pointing away from the leg when worn",
+  "duration_s": 70.0,
+  "model_sha256": "c784f65319a8595f936ae5c72124591626a3276bf8e6807b97c182ac3b36ceb5",
+  "confirmation_s": 0.5,
+  "receive_timeout_s": 0.5,
+  "timestamp_note": "MCU and host clocks are not synchronized. States are candidates, not displacement measurements."
+}

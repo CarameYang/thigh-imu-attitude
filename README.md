@@ -148,17 +148,18 @@ python --version
 
 ### 4.2 Run the tests
 
-38 tests run without any recording (22 attitude + 8 gravity + 8 velocity):
-
-```powershell
-python -m unittest test_attitude test_gravity_removal test_velocity_propagation
-```
-
-The full 49 (the other 11 need local `recordings/` and the fixed model, see §9):
+The recordings are published, so a fresh clone can run the complete suite —
+**49 tests, all passing**:
 
 ```powershell
 python -m unittest test_gravity_removal test_attitude test_stationary_stream `
                    test_zupt_offline test_train_zupt test_velocity_propagation
+```
+
+The 38 tests that need no recording at all (22 attitude + 8 gravity + 8 velocity):
+
+```powershell
+python -m unittest test_attitude test_gravity_removal test_velocity_propagation
 ```
 
 ### 4.3 Read the existing reports
@@ -209,7 +210,11 @@ python -X utf8 visualize_imu.py --recordings live_recordings
 │   ├── algorithms.md             attitude / gravity removal / detection / velocity
 │   ├── experiments.md            recording inventory, method, evidence rules
 │   ├── limitations.md            limits, unfinished work, common misreadings
+│   ├── data-redaction.md         what was removed from the published recordings
 │   └── development.md            environment, tests, commits, data policy
+│
+├── tools/
+│   └── redact_recordings.py      regenerates the redacted recordings before publishing
 │
 ├── Acquisition and receivers
 │   ├── imu_recorder.py           timed recording, raw bytes and arrival times
@@ -266,10 +271,12 @@ python -X utf8 visualize_imu.py --recordings live_recordings
     └── ZUPT_TRAINING_README.md   detector training notes
 ```
 
-**Not committed**: `recordings/`, `live_recordings/`, `analysis/**/*.jsonl`,
-`downloads/`, `repository-review/`, `.venv/`, `.idea/`, `.document_work/`,
-`*.docx`, `personal.ipynb`, and the internal development logs (`AGENTS.md`,
-`PROGRESS.md`, `NEXT_STEPS.md`). See [.gitignore](.gitignore).
+**Not committed**: `analysis/**/*.jsonl`, `downloads/`, `repository-review/`,
+`_raw_backup/` (the unredacted originals), `*.zip`, `.venv/`, `.idea/`,
+`.document_work/`, `*.docx`, `personal.ipynb`, and the internal development logs
+(`AGENTS.md`, `PROGRESS.md`, `NEXT_STEPS.md`). See [.gitignore](.gitignore).
+
+**Published in redacted form**: `recordings/` and `live_recordings/` — see §10.
 
 ---
 
@@ -283,6 +290,7 @@ python -X utf8 visualize_imu.py --recordings live_recordings
 | Attitude, gravity removal, detection and velocity algorithms | [docs/algorithms.md](docs/algorithms.md) |
 | Which experiments exist and what they can prove | [docs/experiments.md](docs/experiments.md) |
 | What is still missing, and what must not be claimed | [docs/limitations.md](docs/limitations.md) |
+| What was removed from the published recordings, and how to verify it | [docs/data-redaction.md](docs/data-redaction.md) |
 | Environment, tests, commits and data policy | [docs/development.md](docs/development.md) |
 | Real results and reproduction steps | [stage assessment](analysis/imu_stage_review_20261014_0000/IMU阶段评估与详细记录.md), [reproduction guide](2026-10-14_1436_Gravity_Removal_Validation_Results_and_Reproduction_Guide.md) |
 | What was actually done in each recording | [RECORDINGS_INDEX.md](RECORDINGS_INDEX.md) |
@@ -347,23 +355,33 @@ Last combined run (2026-10-14, local): **49 passed**.
 | `test_zupt_offline.py` | 4 | **Yes** | Key offline detector behaviour |
 | `test_train_zupt.py` | 4 | **Yes** | Training isolation and interval boundaries |
 
-> **11 tests fail in a fresh clone**, because raw recordings are intentionally
-> not committed. To reproduce them, supply your own `recordings/` plus
-> `analysis/zupt_training_20261007_164450_519158/model.json`.
+> The three data-dependent modules read `recordings/` and
+> `analysis/zupt_training_20261007_164450_519158/model.json`, both of which **are**
+> published here, so these tests run in a fresh clone without extra setup.
 
 ---
 
 ## 10. Data and privacy
 
-- **Raw experiment recordings are not published.** Recordings, per-packet
-  output and replay artifacts are excluded by [.gitignore](.gitignore) and
-  remain on the author's machine — not deleted, just not committed.
+- **The real recordings are published, in redacted form.** `recordings/` and
+  `live_recordings/` contain all 18 sessions (29.6 MB), so the published results
+  can be re-derived end to end. Four receiver-added fields were removed:
+  `sender_ip`, `sender_port` (the LAN address at capture time), `arrival_unix_ns`
+  (host wall clock) and `raw_base64` (a redundant copy of the raw bytes).
+  **The measurement values are byte-identical** — verified record by record —
+  so every number in this README still reproduces exactly.
+  Full details and verification steps: [docs/data-redaction.md](docs/data-redaction.md).
+- **Timestamps were deliberately kept.** Session dates and action notes were
+  already public in the directory names and [RECORDINGS_INDEX.md](RECORDINGS_INDEX.md);
+  changing them only inside the data would have been ineffective and would have
+  contradicted those records.
 - **No credentials.** A full scan found no API keys, tokens, passwords or
   private keys.
 - **Nothing that points to an individual is published.** Host user names and
   absolute paths, LAN addresses, personal names, institution and related
   repository addresses were removed and verified by a full-text scan of every
-  committed file.
+  committed file — including the recordings, which previously carried a LAN
+  address 50,278 times.
 - **One deliberate exception: the firmware protocol constant.** `DIP_PING` and
   `DIP_ACK` in the code are the handshake bytes agreed with the ESP32 firmware.
   Renaming them would immediately break communication with the hardware, so they
@@ -440,11 +458,13 @@ experiment needs.
 scanning every file):
 
 - [x] Host user names and absolute paths (`C:\Users\<user>\…`) → replaced with placeholders.
-- [x] LAN addresses (`192.168.x.x`, `172.x.x.x`) → replaced with placeholders.
+- [x] LAN addresses → replaced with placeholders **and removed from all recordings**
+      (`sender_ip` / `sender_port`, 50,278 occurrences).
 - [x] Personal names, institution and related repository addresses → removed.
 - [x] Internal development logs (`AGENTS.md`, `PROGRESS.md`, `NEXT_STEPS.md`) →
       excluded via [.gitignore](.gitignore), kept locally only.
 - [x] Local documents (`*.docx`) → not published.
+- [x] Unredacted originals kept in `_raw_backup/`, excluded from the repository.
 - [x] Retained `DIP_PING` / `DIP_ACK` are firmware handshake constants; renaming them would break the hardware link.
 
 Still to confirm manually before pushing more:
@@ -453,7 +473,8 @@ Still to confirm manually before pushing more:
 - [ ] **No oversized files**: check `git status` for anything > 50 MB
       (GitHub's hard per-file limit is 100 MB).
 - [ ] **No credentials**: read through `git diff --cached`.
-- [ ] **Recordings not committed**: `recordings/`, `live_recordings/`, `*.jsonl` are ignored.
+- [ ] **New recordings redacted**: re-run `python tools/redact_recordings.py`
+      and confirm no `sender_ip` remains before committing new data.
 - [ ] **Internal logs not committed**: `AGENTS.md`, `PROGRESS.md`, `NEXT_STEPS.md`
       are absent from the staged list.
 - [ ] **Update the status date**: edit "Status as of" at the top and in the §1 table.

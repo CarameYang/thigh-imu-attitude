@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-11T23:39:19.343102+08:00",
+  "mounting": "thigh",
+  "notes": "Thigh repeat trial; planned stand-walk-stand; actual action times reported separately",
+  "duration_s": 40.0,
+  "model_sha256": "c784f65319a8595f936ae5c72124591626a3276bf8e6807b97c182ac3b36ceb5",
+  "confirmation_s": 0.5,
+  "receive_timeout_s": 0.5,
+  "timestamp_note": "MCU and host clocks are not synchronized. States are candidates, not displacement measurements."
+}

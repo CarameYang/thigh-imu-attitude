@@ -38,24 +38,33 @@ dist/
 *~
 
 # -----------------------------------------------------------------------------
-# 实验录制与原始数据 / Experiment recordings and raw data
+# 实验录制 / Experiment recordings
 #
-# recordings/ 与 live_recordings/ 保存真实六轴录制（packets.jsonl / states.jsonl /
-# session.json）。按项目规定不提交；复现需要使用者自备录制。
-# Real six-axis recordings are kept local by project policy. Reproduction
-# requires the reader to supply their own recordings.
+# recordings/ 与 live_recordings/ 随仓库发布，但内容是**已脱敏**的副本：
+# 每行移除了 sender_ip、sender_port、arrival_unix_ns 与 raw_base64，
+# 测量数值本身一字未改。脱敏过程与依据见 docs/data-redaction.md，
+# 工具见 tools/redact_recordings.py。
+# The published recordings are redacted copies: per-record sender_ip, sender_port,
+# arrival_unix_ns and raw_base64 were removed; measurements are byte-identical.
+# See docs/data-redaction.md and tools/redact_recordings.py.
+#
+# _raw_backup/ 保存未脱敏的原始录制，只在本机保留，用于重新生成或复核。
+# _raw_backup/ holds the untouched originals and is never published.
 # -----------------------------------------------------------------------------
-recordings/
-live_recordings/
-recordings*.zip
-live_recordings*.zip
+_raw_backup/
+*.zip
 *.mcap
 *.bag
 *.db3
 *.jsonl
 
-# 例外：将来若放入体积很小、确定性的测试样例，可解除下面一行的注释。
-# Exception: uncomment if small deterministic samples are later added.
+# recordings/ 与 live_recordings/ 下的逐包与状态文件需要入库，覆盖上面的 *.jsonl。
+# The per-packet and state files under these two roots are published.
+!recordings/**/*.jsonl
+!live_recordings/**/*.jsonl
+
+# 将来若要放入更小的确定性样例，可解除下面一行的注释。
+# Uncomment if smaller deterministic samples are added later.
 # !data/samples/*.jsonl
 
 # -----------------------------------------------------------------------------

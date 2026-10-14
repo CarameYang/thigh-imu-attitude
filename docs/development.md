@@ -78,7 +78,10 @@ python -m unittest test_attitude test_gravity_removal test_velocity_propagation
 | `test_zupt_offline` | 4 | **是** |
 | `test_train_zupt` | 4 | **是** |
 
-> 依赖数据的 11 项需要 `recordings/` 下的对应录制与固定 `model.json`。
+> 依赖数据的 11 项读取已随仓库发布的 `recordings/` 与固定 `model.json`，
+> 因此在新克隆中也能直接运行。
+> The 11 data-dependent tests read the published `recordings/` and the fixed
+> `model.json`, so they run in a fresh clone too.
 > 若在本机缺少数据，请**如实说明未运行**，不要写成"测试通过"。
 > If the data is missing, state that the tests were not run — never report a
 > pass you did not observe.
@@ -128,11 +131,12 @@ python -m unittest test_attitude test_gravity_removal test_velocity_propagation
 
 | 规则 | 说明 |
 |---|---|
-| 原始录制**不入库** | `recordings/`、`live_recordings/`、`*.jsonl` 均在 `.gitignore` |
-| 原始录制**不删除** | 不提交 ≠ 可以删；本机保留全部原始数据 |
+| 录制**脱敏后入库** | `recordings/`、`live_recordings/` 随仓库发布，但每行必须先移除 `sender_ip`、`sender_port`、`arrival_unix_ns`、`raw_base64`；见 [data-redaction.md](data-redaction.md) |
+| 未脱敏原件**不入库但必须保留** | 本机 `_raw_backup/`（`.gitignore` 已排除）；不提交 ≠ 可以删 |
+| **每次新增录制都要重新脱敏** | `python tools/redact_recordings.py --source _raw_backup --target .`，提交前确认无 `sender_ip` 残留 |
 | 每次录制**必须登记** | 在 [`RECORDINGS_INDEX.md`](../RECORDINGS_INDEX.md) 记录目录名、记录时间、实际动作、用途、能否作为安装依据 |
-| 小型确定性样例可入库 | 放在 `data/samples/`（需先解除 `.gitignore` 中的例外注释） |
-| 不提交大型日志/产物 | MCAP、bag、大型日志、安装包一律排除 |
+| 逐包派生输出不入库 | 例如 `analysis/**/*.jsonl`（可由代码重算） |
+| 不提交大型日志/产物 | MCAP、bag、大型日志、安装包、`*.zip` 一律排除 |
 
 ### 新增一次录制的流程 / Adding a recording
 

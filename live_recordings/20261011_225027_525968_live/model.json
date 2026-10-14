@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "kind": "stationary_detector_not_INS",
+  "bias_radps": [
+    -0.020495493656645894,
+    -0.006844256493084482,
+    -0.00866488206724287
+  ],
+  "thresholds": {
+    "gyro_rms_radps": 0.11173814349316023,
+    "accel_vector_rms_mps2": 0.3151790454555545,
+    "gravity_error_rms_mps2": 0.33120653483814977
+  },
+  "detector": {
+    "window_s": 0.2,
+    "max_gap_s": 0.04,
+    "training_quantile": 0.99,
+    "threshold_multiplier": 1.5,
+    "threshold_floors": [
+      0.06,
+      0.15,
+      0.2
+    ]
+  },
+  "training": [
+    {
+      "interval": {
+        "session": "20260923_024502_927703_stationary",
+        "start_s": 0,
+        "end_s": null
+      },
+      "labeled_samples": 3001,
+      "bias_samples": 3000,
+      "eligible_windows": 2990,
+      "gyro_mean_radps": [
+        -0.020492257,
+        -0.0074685536666666665,
+        -0.007513302
+      ],
+      "gyro_sd_radps": [
+        0.019190454070642262,
+        0.02292761634187383,
+        0.023797334406141835
+      ],
+      "acceleration_norm_mean_mps2": 9.880422615527918,
+      "feature_quantiles": {
+        "gyro_rms_radps": 0.049368398089352526,
+        "accel_vector_rms_mps2": 0.13718898381082528,
+        "gravity_error_rms_mps2": 0.13636548859539505
+      },
+      "residual_mean_radps": [
+        3.2366566458941204e-06,
+        -0.0006242971735821844,
+        0.0011515800672428694
+      ]
+    },
+    {
+      "interval": {
+        "session": "20260923_025602_464673_stationary",
+        "start_s": 0,
+        "end_s": null
+      },
+      "labeled_samples": 2998,
+      "bias_samples": 2997,
+      "eligible_windows": 2977,
+      "gyro_mean_radps": [
+        -0.02063026026026026,
+        -0.006650844844844845,
+        -0.008411126459793127
+      ],
+      "gyro_sd_radps": [
+        0.018729620969555594,
+        0.022960362271455263,
+        0.023076093455838678
+      ],
+      "acceleration_norm_mean_mps2": 9.751215511308283,
+      "feature_quantiles": {
+        "gyro_rms_radps": 0.04807672191352886,
+        "accel_vector_rms_mps2": 0.14339791009523203,
+        "gravity_error_rms_mps2": 0.12789246892953532
+      },
+      "residual_mean_radps": [
+        -0.0001347666036143648,
+        0.00019341164823963742,
+        0.0002537556074497429
+      ]
+    },
+    {
+      "interval": {
+        "session": "20261007_155937_947511_motion",
+        "start_s": 55,
+        "end_s": 60
+      },
+      "labeled_samples": 249,
+      "bias_samples": 248,
+      "eligible_windows": 238,
+      "gyro_mean_radps": [
+        -0.02036396370967742,
+        -0.006413370967741936,
+        -0.010070217741935485
+      ],
+      "gyro_sd_radps": [
+        0.03035822185606126,
+        0.03357878123660104,
+        0.02757048027789897
+      ],
+      "acceleration_norm_mean_mps2": 9.746234900412375,
+      "feature_quantiles": {
+        "gyro_rms_radps": 0.07449209566210682,
+        "accel_vector_rms_mps2": 0.21011936363703632,
+        "gravity_error_rms_mps2": 0.2208043565587665
+      },
+      "residual_mean_radps": [
+        0.00013152994696847414,
+        0.00043088552534254615,
+        -0.0014053356746926149
+      ]
+    }
+  ],
+  "training_bias_range_radps": [
+    0.00026629655058283894,
+    0.0010551826989247306,
+    0.0025569157419354843
+  ],
+  "bias_policy": "Equal weight per labeled training interval; provisional shared bias, not proof of cross-session stability",
+  "threshold_policy": "Max of per-interval training quantiles times multiplier, bounded below by configured floors",
+  "limitations": [
+    "Positive stationary labels only: false-positive rate is not evaluated.",
+    "Labels are user-confirmed, not independent motion capture.",
+    "Latest recording appears in both splits with disjoint intervals; not session-independent validation.",
+    "No acceleration bias correction, INS, velocity or position update."
+  ],
+  "created_at": "2026-10-07T16:44:50.519158+08:00",
+  "sources": {
+    "20260923_024502_927703_stationary": {
+      "path": "<repo-root>/recordings/20260923_024502_927703_stationary",
+      "sha256": "093ab61a85bbe684ec7430926a128b60eec80f2745e928158f6c51ffdbd0ecf2"
+    },
+    "20260923_025602_464673_stationary": {
+      "path": "<repo-root>/recordings/20260923_025602_464673_stationary",
+      "sha256": "c6798d353b9f43cb2f3ea58431ae7eaa5189ccb8d9f7e7a9622d79903b071b9f"
+    },
+    "20260923_025833_233431_motion": {
+      "path": "<repo-root>/recordings/20260923_025833_233431_motion",
+      "sha256": "f53977e496fbba4bf46c57212495c2a30e475b29242a6c49bcb063dd890445ce"
+    },
+    "20260923_162429_405653_motion": {
+      "path": "<repo-root>/recordings/20260923_162429_405653_motion",
+      "sha256": "4e8f204a3b7e0bbcc99f8e6528bd918714d29b8d79599202d3eb5bdb24c6e5ce"
+    },
+    "20261007_155209_788135_motion": {
+      "path": "<repo-root>/recordings/20261007_155209_788135_motion",
+      "sha256": "752235c0bc7ae016ccd68e41682200839bcf8c259b7d244b658002e9509423c2"
+    },
+    "20261007_155937_947511_motion": {
+      "path": "<repo-root>/recordings/20261007_155937_947511_motion",
+      "sha256": "854b15e6e76655b0a0e369f3e4a27a721826bc65cb2260813614d85417a23d45"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ended_at": "2026-10-07T16:00:37.967614+08:00",
+  "reason": "completed",
+  "valid_imu_packets": 2992,
+  "invalid_or_other_packets": 0,
+  "ack_send_failures": 0,
+  "arrival_rate_hz": 49.85806695213608,
+  "first_node_timestamp_us": 537685867,
+  "last_node_timestamp_us": 597706244,
+  "node_timestamp_nonincreasing_count": 0
+}

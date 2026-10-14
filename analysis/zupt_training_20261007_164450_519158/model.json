@@ -133,28 +133,28 @@
   "created_at": "2026-10-07T16:44:50.519158+08:00",
   "sources": {
     "20260923_024502_927703_stationary": {
-      "path": "<repo-root>\\recordings\\20260923_024502_927703_stationary",
-      "sha256": "a0f84bfa18c265d47e2bdbae546e786a53e18fbb4b913cbd6f084867afab1c25"
+      "path": "<repo-root>/recordings/20260923_024502_927703_stationary",
+      "sha256": "093ab61a85bbe684ec7430926a128b60eec80f2745e928158f6c51ffdbd0ecf2"
     },
     "20260923_025602_464673_stationary": {
-      "path": "<repo-root>\\recordings\\20260923_025602_464673_stationary",
-      "sha256": "d649d374b0f37c09496c00de615886cef9f2329613142323b5439c437e9ae4c0"
+      "path": "<repo-root>/recordings/20260923_025602_464673_stationary",
+      "sha256": "c6798d353b9f43cb2f3ea58431ae7eaa5189ccb8d9f7e7a9622d79903b071b9f"
     },
     "20260923_025833_233431_motion": {
-      "path": "<repo-root>\\recordings\\20260923_025833_233431_motion",
-      "sha256": "9b6d5c4385fe6d472954f4cb58deeac45c173fe2cfab2b5b1232685386818873"
+      "path": "<repo-root>/recordings/20260923_025833_233431_motion",
+      "sha256": "f53977e496fbba4bf46c57212495c2a30e475b29242a6c49bcb063dd890445ce"
     },
     "20260923_162429_405653_motion": {
-      "path": "<repo-root>\\recordings\\20260923_162429_405653_motion",
-      "sha256": "0c2758f035c086df2b89e774b5de20df769c16f5e123315bdd5cef68685f0079"
+      "path": "<repo-root>/recordings/20260923_162429_405653_motion",
+      "sha256": "4e8f204a3b7e0bbcc99f8e6528bd918714d29b8d79599202d3eb5bdb24c6e5ce"
     },
     "20261007_155209_788135_motion": {
-      "path": "<repo-root>\\recordings\\20261007_155209_788135_motion",
-      "sha256": "4f23b204ff968b5d9a8108140503dbaecee17268737cb46ba00b4175120c9e62"
+      "path": "<repo-root>/recordings/20261007_155209_788135_motion",
+      "sha256": "752235c0bc7ae016ccd68e41682200839bcf8c259b7d244b658002e9509423c2"
     },
     "20261007_155937_947511_motion": {
-      "path": "<repo-root>\\recordings\\20261007_155937_947511_motion",
-      "sha256": "ddcbcc162c629bb95b2f0337822344d7ebcce629e3af54fca03126267e482009"
+      "path": "<repo-root>/recordings/20261007_155937_947511_motion",
+      "sha256": "854b15e6e76655b0a0e369f3e4a27a721826bc65cb2260813614d85417a23d45"
     }
   }
 }

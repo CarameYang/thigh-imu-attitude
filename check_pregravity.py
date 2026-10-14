@@ -30,7 +30,14 @@ def main():
         packets = [r['packet'] for r in records]
         dt = [(b['timestamp_us']-a['timestamp_us'])/1e6 for a, b in zip(packets, packets[1:])]
         bad_seq = sum(b['sequence_number'] != a['sequence_number']+1 for a, b in zip(packets, packets[1:]))
-        mismatch = sum(json.loads(base64.b64decode(r['raw_base64'])) != r['packet'] for r in records)
+        # 发布用的脱敏录制不含 raw_base64；此时跳过原始字节核对并明确说明。
+        # Redacted published recordings have no raw_base64; skip that check and say so.
+        raw_records = [r for r in records if 'raw_base64' in r]
+        mismatch = sum(json.loads(base64.b64decode(r['raw_base64'])) != r['packet']
+                       for r in raw_records)
+        if len(raw_records) != len(records):
+            print(f'{name}: raw bytes not published for {len(records) - len(raw_records)} '
+                  f'of {len(records)} records; raw-vs-parsed check skipped')
         repeats = sum(a['data'] == b['data'] for a, b in zip(packets, packets[1:]))
         finite = all(math.isfinite(p['data'][k]) for p in packets for k in KEYS)
         if bad_seq or mismatch or not finite or any(not 0 < d <= 0.2 for d in dt):
