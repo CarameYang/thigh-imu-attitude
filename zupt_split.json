@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "label_source": "user_confirmed_stationary",
+  "latest_session_mounting": "thigh",
+  "training": [
+    {"session": "20260923_024502_927703_stationary", "start_s": 0, "end_s": null},
+    {"session": "20260923_025602_464673_stationary", "start_s": 0, "end_s": null},
+    {"session": "20261007_155937_947511_motion", "start_s": 55, "end_s": 60}
+  ],
+  "validation": [
+    {"session": "20260923_025833_233431_motion", "start_s": 5, "end_s": 10},
+    {"session": "20260923_162429_405653_motion", "start_s": 5, "end_s": 10},
+    {"session": "20261007_155209_788135_motion", "start_s": 5, "end_s": 10},
+    {"session": "20261007_155937_947511_motion", "start_s": 5, "end_s": 10}
+  ],
+  "detector": {
+    "window_s": 0.2,
+    "max_gap_s": 0.04,
+    "training_quantile": 0.99,
+    "threshold_multiplier": 1.5,
+    "threshold_floors": [0.06, 0.15, 0.2]
+  }
+}
