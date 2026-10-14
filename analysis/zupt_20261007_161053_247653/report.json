@@ -1,0 +1,54 @@
+{
+  "train_s": [
+    5.0,
+    10.0
+  ],
+  "validation_s": [
+    55.0,
+    60.0
+  ],
+  "screened_samples": 239,
+  "bias_radps": [
+    -0.01946123849372385,
+    -0.004601225941422594,
+    -0.012542673640167364
+  ],
+  "thresholds": {
+    "gyro_rms_radps": 0.12599458281351997,
+    "accel_vector_rms_mps2": 0.2991282498219764,
+    "gravity_error_rms_mps2": 0.2
+  },
+  "screening_limits": [
+    0.15,
+    0.25,
+    0.35
+  ],
+  "window_s": 0.2,
+  "max_gap_s": 0.04,
+  "validation": {
+    "n": 249,
+    "mean_before_radps": [
+      -0.020417016064257026,
+      -0.006387614457831326,
+      -0.010118060240963855
+    ],
+    "mean_after_radps": [
+      -0.0009557775705331777,
+      -0.0017863885164087316,
+      0.0024246133992035096
+    ],
+    "bias_mean_norm_before": 0.023664980593057727,
+    "bias_mean_norm_after": 0.0031596589739224215,
+    "gyro_rms_before": 0.057863498805864,
+    "gyro_rms_after": 0.05289741612232033,
+    "eligible_windows": 249,
+    "unknown_windows": 0,
+    "candidate_fraction": 0.9558232931726908
+  },
+  "total_samples": 2992,
+  "missing_ids": 10,
+  "unknown_windows": 32,
+  "note": "Candidate detection only; no velocity/position or ZUPT update. Ratios are not accuracy. IMU alone cannot prove zero velocity.",
+  "source": "<repo-root>\\recordings\\20261007_155937_947511_motion",
+  "source_sha256": "ddcbcc162c629bb95b2f0337822344d7ebcce629e3af54fca03126267e482009"
+}

@@ -1,0 +1,10 @@
+训练完成 / Training complete
+Bias (rad/s): [-0.020495493656645894, -0.006844256493084482, -0.00866488206724287]
+Thresholds: {'gyro_rms_radps': 0.11173814349316023, 'accel_vector_rms_mps2': 0.3151790454555545, 'gravity_error_rms_mps2': 0.33120653483814977}
+
+各验证区间仅计算完整窗口的静止检出比例，不是总体准确率。
+Fractions cover eligible stationary windows only, not overall accuracy.
+20260923_025833_233431_motion: 240/240 (100.00%); excluded=10; mean norm 0.024755 -> 0.002687 rad/s
+20260923_162429_405653_motion: 240/240 (100.00%); excluded=10; mean norm 0.021958 -> 0.001506 rad/s
+20261007_155209_788135_motion: 152/240 (63.33%); excluded=10; mean norm 0.035170 -> 0.047351 rad/s
+20261007_155937_947511_motion: 223/239 (93.31%); excluded=11; mean norm 0.021530 -> 0.005823 rad/s

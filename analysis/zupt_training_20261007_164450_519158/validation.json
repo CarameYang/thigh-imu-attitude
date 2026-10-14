@@ -1,0 +1,126 @@
+[
+  {
+    "interval": {
+      "session": "20260923_025833_233431_motion",
+      "start_s": 5,
+      "end_s": 10
+    },
+    "labeled_samples": 250,
+    "eligible_windows": 240,
+    "excluded_window_endpoints": 10,
+    "candidate_windows": 240,
+    "stationary_detection_fraction": 1.0,
+    "mean_before_radps": [
+      -0.0221617,
+      -0.0050664840000000004,
+      -0.009797864
+    ],
+    "mean_after_radps": [
+      -0.0016662063433541062,
+      0.0017777724930844823,
+      -0.0011329819327571301
+    ],
+    "mean_norm_before_radps": 0.024754966087125872,
+    "mean_norm_after_radps": 0.0026870739989355258,
+    "rms_before_radps": 0.04578727992742089,
+    "rms_after_radps": 0.038612006213780234,
+    "failed_windows_by_feature": {
+      "gyro_rms_radps": 0,
+      "accel_vector_rms_mps2": 0,
+      "gravity_error_rms_mps2": 0
+    }
+  },
+  {
+    "interval": {
+      "session": "20260923_162429_405653_motion",
+      "start_s": 5,
+      "end_s": 10
+    },
+    "labeled_samples": 250,
+    "eligible_windows": 240,
+    "excluded_window_endpoints": 10,
+    "candidate_windows": 240,
+    "stationary_detection_fraction": 1.0,
+    "mean_before_radps": [
+      -0.019639884,
+      -0.00593464,
+      -0.00782334
+    ],
+    "mean_after_radps": [
+      0.000855609656645894,
+      0.0009096164930844823,
+      0.0008415420672428697
+    ],
+    "mean_norm_before_radps": 0.021957906189312676,
+    "mean_norm_after_radps": 0.0015058761901220231,
+    "rms_before_radps": 0.04428044241594702,
+    "rms_after_radps": 0.03848214650241486,
+    "failed_windows_by_feature": {
+      "gyro_rms_radps": 0,
+      "accel_vector_rms_mps2": 0,
+      "gravity_error_rms_mps2": 0
+    }
+  },
+  {
+    "interval": {
+      "session": "20261007_155209_788135_motion",
+      "start_s": 5,
+      "end_s": 10
+    },
+    "labeled_samples": 250,
+    "eligible_windows": 240,
+    "excluded_window_endpoints": 10,
+    "candidate_windows": 152,
+    "stationary_detection_fraction": 0.6333333333333333,
+    "mean_before_radps": [
+      0.023358108,
+      -0.024700576,
+      -0.009012299999999999
+    ],
+    "mean_after_radps": [
+      0.043853601656645896,
+      -0.01785631950691552,
+      -0.0003474179327571303
+    ],
+    "mean_norm_before_radps": 0.03517017508289431,
+    "mean_norm_after_radps": 0.047350894646382646,
+    "rms_before_radps": 0.10130939504405305,
+    "rms_after_radps": 0.10615441362771211,
+    "failed_windows_by_feature": {
+      "gyro_rms_radps": 73,
+      "accel_vector_rms_mps2": 22,
+      "gravity_error_rms_mps2": 0
+    }
+  },
+  {
+    "interval": {
+      "session": "20261007_155937_947511_motion",
+      "start_s": 5,
+      "end_s": 10
+    },
+    "labeled_samples": 250,
+    "eligible_windows": 239,
+    "excluded_window_endpoints": 11,
+    "candidate_windows": 223,
+    "stationary_detection_fraction": 0.9330543933054394,
+    "mean_before_radps": [
+      -0.016034648,
+      -0.007287764,
+      -0.012381432
+    ],
+    "mean_after_radps": [
+      0.004460845656645894,
+      -0.00044350750691551775,
+      -0.00371654993275713
+    ],
+    "mean_norm_before_radps": 0.02152954479254552,
+    "mean_norm_after_radps": 0.005823107957421361,
+    "rms_before_radps": 0.06935891887107237,
+    "rms_after_radps": 0.06618947736818565,
+    "failed_windows_by_feature": {
+      "gyro_rms_radps": 11,
+      "accel_vector_rms_mps2": 13,
+      "gravity_error_rms_mps2": 0
+    }
+  }
+]

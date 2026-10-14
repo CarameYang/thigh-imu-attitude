@@ -1,0 +1,51 @@
+{
+  "session": "20261011_034935_192932_live",
+  "range_s": [
+    33,
+    36
+  ],
+  "time_basis": "host elapsed_s from states.jsonl",
+  "transitions": [
+    {
+      "t": 33.9787124,
+      "state": "not_stationary_candidate",
+      "reason": "threshold_exceeded"
+    },
+    {
+      "t": 34.5040032,
+      "state": "confirming",
+      "reason": "awaiting_confirmation"
+    },
+    {
+      "t": 35.0186331,
+      "state": "stationary_candidate",
+      "reason": "sustained_low_dynamics"
+    }
+  ],
+  "bias_radps": [
+    -0.020495493656645894,
+    -0.006844256493084482,
+    -0.00866488206724287
+  ],
+  "thresholds": {
+    "gyro_rms_radps": 0.11173814349316023,
+    "accel_vector_rms_mps2": 0.3151790454555545,
+    "gravity_error_rms_mps2": 0.33120653483814977
+  },
+  "gyro_raw_abs_peak_radps": {
+    "X": 0.247144,
+    "Y": 0.105253,
+    "Z": 0.088998
+  },
+  "gyro_corrected_abs_peak_radps": {
+    "X": 0.2676394936566459,
+    "Y": 0.11209725649308448,
+    "Z": 0.09766288206724286
+  },
+  "note": "User confirmed stillness near 34.5 s only; plotted states are not ground truth for the entire displayed interval.",
+  "hashes": {
+    "model.json": "c784f65319a8595f936ae5c72124591626a3276bf8e6807b97c182ac3b36ceb5",
+    "states.jsonl": "c534b223d11faa5ffc6d1d4b8673bc1b2419a20e4b83c16282b3b1c40104ca59",
+    "packets.jsonl": "a68d119aef315c91286ab50e3f02c73caa47835e82852d6b2389d9e6c0a4094a"
+  }
+}

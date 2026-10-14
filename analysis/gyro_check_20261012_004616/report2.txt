@@ -1,0 +1,36 @@
+session: 20261012_004616_059007_live
+
+=== static plateaus: mean accel, unit direction, magnitude ===
+A: 2-9 s (start)                 n= 375 |a|= 9.8762  sd|a|=0.0855  unit=(-0.1229, +0.0145, +0.9923)  |w|=0.02314 rad/s
+B: 22-29 s (after 1st turn)      n= 374 |a|= 9.7601  sd|a|=0.0672  unit=(+0.9674, +0.0114, +0.2531)  |w|=0.02236 rad/s
+C: 45-59 s (after 2nd turn)      n= 724 |a|= 9.8669  sd|a|=0.0692  unit=(+0.0090, +0.0103, +0.9999)  |w|=0.02404 rad/s
+
+=== static magnitude scale check ===
+A: 2-9 s (start)                 mean |a| = 9.8770 m/s2   ratio to 9.80665 = 1.00718
+B: 22-29 s (after 1st turn)      mean |a| = 9.7617 m/s2   ratio to 9.80665 = 0.99541
+C: 45-59 s (after 2nd turn)      mean |a| = 9.8698 m/s2   ratio to 9.80665 = 1.00644
+
+=== 1st: 10-21 s (user: about 10 s) ===
+   gyro integral: angle =   90.858 deg, raw axis = (-0.2028, -0.9748, -0.0925), n=626, gaps=0
+   best convention = negative_of_body_increment (angle -90.858 deg)
+   measured start  a = ( -1.2141,  +0.1431,  +9.8003)  |a|=9.8762
+   predicted final a = ( +9.7223,  -1.3098,  +1.1409)  |a|=9.8762
+   measured  final a = ( +9.4417,  +0.1116,  +2.4701)  |a|=9.7601
+   residual = (+0.2806, -1.4213, -1.3292)  |residual|=1.9661 m/s2
+   direction error = 11.473 deg   magnitude error = +0.1161 m/s2
+   measured axis = (-0.0077, +0.9998, -0.0156), angle between start pose and axis = 90.00 deg
+   angle between start and final pose = 82.393 deg; implied rotation angle = 82.393 deg
+   gyro angle - implied angle = +8.465 deg  (+10.27 % if implied != 0)
+
+=== 2nd: 30-44 s (user: about 14 s) ===
+   gyro integral: angle =   71.380 deg, raw axis = (-0.3069, +0.9454, -0.1096), n=774, gaps=0
+   best convention = negative_of_body_increment (angle -71.380 deg)
+   measured start  a = ( +9.4417,  +0.1116,  +2.4701)  |a|=9.7601
+   predicted final a = ( +1.4299,  -1.6732,  +9.5087)  |a|=9.7601
+   measured  final a = ( +0.0891,  +0.1013,  +9.8660)  |a|=9.8669
+   residual = (+1.3408, -1.7745, -0.3573)  |residual|=2.2526 m/s2
+   direction error = 13.166 deg   magnitude error = -0.1068 m/s2
+   measured axis = (+0.0091, -0.9999, +0.0102), angle between start pose and axis = 90.00 deg
+   angle between start and final pose = 74.816 deg; implied rotation angle = 74.816 deg
+   gyro angle - implied angle = -3.437 deg  (-4.59 % if implied != 0)
+

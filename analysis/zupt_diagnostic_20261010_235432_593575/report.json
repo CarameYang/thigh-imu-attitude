@@ -1,0 +1,67 @@
+{
+  "interval": {
+    "session": "20261007_155209_788135_motion",
+    "start_s": 5,
+    "end_s": 10
+  },
+  "labeled_samples": 250,
+  "eligible_windows": 240,
+  "excluded_window_endpoints": 10,
+  "candidate_windows": 152,
+  "stationary_detection_fraction": 0.6333333333333333,
+  "mean_before_radps": [
+    0.023358108,
+    -0.024700576,
+    -0.009012299999999999
+  ],
+  "mean_after_radps": [
+    0.043853601656645896,
+    -0.01785631950691552,
+    -0.0003474179327571303
+  ],
+  "mean_norm_before_radps": 0.03517017508289431,
+  "mean_norm_after_radps": 0.047350894646382646,
+  "rms_before_radps": 0.10130939504405305,
+  "rms_after_radps": 0.10615441362771211,
+  "failed_windows_by_feature": {
+    "gyro_rms_radps": 73,
+    "accel_vector_rms_mps2": 22,
+    "gravity_error_rms_mps2": 0
+  },
+  "miss_runs_window_endpoints": [
+    {
+      "first_endpoint_s": 5.200001,
+      "last_endpoint_s": 6.160026,
+      "windows": 49
+    },
+    {
+      "first_endpoint_s": 6.200001,
+      "last_endpoint_s": 6.260005,
+      "windows": 4
+    },
+    {
+      "first_endpoint_s": 6.940002,
+      "last_endpoint_s": 7.380002,
+      "windows": 23
+    },
+    {
+      "first_endpoint_s": 7.960001,
+      "last_endpoint_s": 8.180002,
+      "windows": 12
+    }
+  ],
+  "exclusive_failure_counts": {
+    "gyro_only": 66,
+    "accel_only": 15,
+    "gyro_and_accel": 7
+  },
+  "gyro_failed_without_bias_same_threshold": 60,
+  "raw_vs_corrected_gyro_changes": {
+    "new_failures": 13,
+    "resolved_failures": 0
+  },
+  "note": "User-confirmed stationary labels retained. Counterfactual no-bias results are diagnostic only, not a new fitted model.",
+  "model_path": "<repo-root>\\analysis\\zupt_training_20261007_164450_519158\\model.json",
+  "model_sha256": "c784f65319a8595f936ae5c72124591626a3276bf8e6807b97c182ac3b36ceb5",
+  "source_sha256": "4f23b204ff968b5d9a8108140503dbaecee17268737cb46ba00b4175120c9e62"
+}
