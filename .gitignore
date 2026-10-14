@@ -1,0 +1,110 @@
+# =============================================================================
+# 大腿 IMU 姿态估计与去重力 / Thigh IMU attitude estimation and gravity removal
+#
+# 本文件按“公开仓库”用途编写：排除运行环境、实验录制、下载物与本地文档。
+# Written for public-repository use: excludes environments, experiment
+# recordings, downloaded assets and local-only documents.
+#
+# 原则 / Principles:
+#   1. 原始实验数据不入库，但必须在本机保留，不因不提交而删除。
+#      Raw experiment data is never committed, but must be kept locally.
+#   2. 代码与可复现的文本报告入库；逐包输出与大型产物不入库。
+#      Code and reproducible text reports are committed; per-packet output is not.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python 运行环境与缓存 / Python environments and caches
+# -----------------------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# -----------------------------------------------------------------------------
+# 编辑器与 IDE / Editors and IDEs
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# 实验录制与原始数据 / Experiment recordings and raw data
+#
+# recordings/ 与 live_recordings/ 保存真实六轴录制（packets.jsonl / states.jsonl /
+# session.json）。按项目规定不提交；复现需要使用者自备录制。
+# Real six-axis recordings are kept local by project policy. Reproduction
+# requires the reader to supply their own recordings.
+# -----------------------------------------------------------------------------
+recordings/
+live_recordings/
+recordings*.zip
+live_recordings*.zip
+*.mcap
+*.bag
+*.db3
+*.jsonl
+
+# 例外：将来若放入体积很小、确定性的测试样例，可解除下面一行的注释。
+# Exception: uncomment if small deterministic samples are later added.
+# !data/samples/*.jsonl
+
+# -----------------------------------------------------------------------------
+# 本地下载物与工具安装包 / Local downloads and installer assets
+# -----------------------------------------------------------------------------
+downloads/
+foxglove/
+*.msi
+
+# -----------------------------------------------------------------------------
+# 文档构建中间产物 / Document build intermediates
+# -----------------------------------------------------------------------------
+.document_work/
+
+# -----------------------------------------------------------------------------
+# 外部仓库的本地克隆 / Local clone of an external repository
+#
+# repository-review/ 是另一个（外部）代码仓库的本地克隆副本，不随本仓库发布。
+# 若不排除，Git 会把它当作嵌入式仓库（gitlink），产生损坏的子模块引用。
+# It is a clone of an external repository; without this rule Git records it as
+# an embedded repository and creates a broken submodule reference.
+# -----------------------------------------------------------------------------
+repository-review/
+
+# -----------------------------------------------------------------------------
+# 与项目无关的本地文件 / Local files unrelated to this project
+# -----------------------------------------------------------------------------
+tg-chat-translator/
+personal.ipynb
+
+# -----------------------------------------------------------------------------
+# 本地文档（保留在本机，不随本仓库发布）
+# Local documents (kept on the author's machine, not published here)
+#
+# 项目章程、进度总结与文件夹指南含姓名、预算与本机路径，均不适合公开。
+# The charter, progress summary and folder guide contain names, budget figures
+# and host-specific paths, so they are not published here.
+# -----------------------------------------------------------------------------
+*.docx
+
+# -----------------------------------------------------------------------------
+# 内部开发与协作日志 / Internal development and collaboration logs
+#
+# 这三个文件是本机的开发日志与协作约定：含本机绝对路径、内网地址、组号与
+# 成员姓名，且内容面向本地工作流，对公开读者没有价值。它们保留在本机。
+# These three files are local working logs and collaboration rules. They contain
+# host paths, LAN addresses, group identifiers and member names, and are written
+# for a local workflow rather than for public readers. They stay local.
+# -----------------------------------------------------------------------------
+AGENTS.md
+PROGRESS.md
+NEXT_STEPS.md
